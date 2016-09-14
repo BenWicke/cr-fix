@@ -9,11 +9,14 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131021144932) do
+ActiveRecord::Schema.define(version: 20131021144932) do
 
-  create_table "command_officers", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "command_officers", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -27,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "command_vehicles", :force => true do |t|
+  create_table "command_vehicles", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -41,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "emergency_supports", :force => true do |t|
+  create_table "emergency_supports", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -55,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "emts", :force => true do |t|
+  create_table "emts", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "engines", :force => true do |t|
+  create_table "engines", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "field_units", :force => true do |t|
+  create_table "field_units", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -97,7 +100,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "fire_chiefs", :force => true do |t|
+  create_table "fire_chiefs", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -111,7 +114,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "fire_fighters", :force => true do |t|
+  create_table "fire_fighters", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -125,7 +128,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "hazmat_specialists", :force => true do |t|
+  create_table "hazmat_specialists", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -139,7 +142,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "hazmat_units", :force => true do |t|
+  create_table "hazmat_units", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -153,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "incidents", :force => true do |t|
+  create_table "incidents", force: true do |t|
     t.datetime "incident_datetime"
     t.string   "location"
     t.string   "report_nr"
@@ -184,7 +187,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "insur_zip"
   end
 
-  create_table "ladder_truck150s", :force => true do |t|
+  create_table "ladder_truck150s", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -198,7 +201,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.datetime "updated_at"
   end
 
-  create_table "ladder_truck75s", :force => true do |t|
+  create_table "ladder_truck75s", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -212,7 +215,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.datetime "updated_at"
   end
 
-  create_table "mat_lists", :force => true do |t|
+  create_table "mat_lists", force: true do |t|
     t.integer  "incident_id"
     t.boolean  "knd"
     t.string   "knd_am"
@@ -268,7 +271,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "acid_am"
   end
 
-  create_table "profiles", :force => true do |t|
+  create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.string   "name"
     t.string   "department"
@@ -281,7 +284,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.datetime "updated_at"
   end
 
-  create_table "pumpers", :force => true do |t|
+  create_table "pumpers", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -295,7 +298,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "rescue_units", :force => true do |t|
+  create_table "rescue_units", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -309,7 +312,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "safety_officers", :force => true do |t|
+  create_table "safety_officers", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -323,17 +326,17 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
+  create_table "sessions", force: true do |t|
+    t.string   "session_id", null: false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
-  create_table "tankers", :force => true do |t|
+  create_table "tankers", force: true do |t|
     t.string   "name"
     t.float    "first_hour"
     t.float    "additional_hours"
@@ -347,7 +350,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.string   "report_nr"
   end
 
-  create_table "timesheets", :force => true do |t|
+  create_table "timesheets", force: true do |t|
     t.string   "name"
     t.datetime "date"
     t.integer  "incident_id"
@@ -355,7 +358,7 @@ ActiveRecord::Schema.define(:version => 20131021144932) do
     t.datetime "updated_at"
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "email"
     t.string   "hashed_password"
     t.datetime "created_at"

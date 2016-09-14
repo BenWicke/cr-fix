@@ -6,9 +6,9 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: 8-12-16
+  database: 9-14-16-Backup
   pool: 5
-  username: Ben
+  username: Zeinab
   password:
   
 
@@ -18,9 +18,9 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: 8-12-16
+  database: 9-14-16-Backup
   pool: 5
-  username: Ben
+  username: Zeinab
   password:
 
 #production:

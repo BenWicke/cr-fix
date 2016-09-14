@@ -2,7 +2,7 @@ require 'digest'
 class User < ActiveRecord::Base
 	attr_accessor :password
 	
-	validates :email, :uniqueness => true, :length => { :within => 5..50 }, :format => { :with => /^[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}$/i }
+	validates :email, :uniqueness => true, :length => { :within => 5..50 }, :format => { :with => /\A[^@][\w.-]+@[\w.-]+[.][a-z]{2,4}\Z/i }
 	validates :password, :confirmation => true, :length => { :within => 4..20 }, :presence => true, :if => :password_required?
 						 
 	before_save :encrypt_new_password
